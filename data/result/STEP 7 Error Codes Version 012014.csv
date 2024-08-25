@@ -1,0 +1,1615 @@
+Error number: Text: Cause: Remedy:,,,
+1:2063,TBI error 2063 Error during the function chdir,"TBI can occur with the call AUTgetlinkedObjects. There should be an
+AUT API tracer in the meantime.",
+7:6160,"CPUs can only be connected via K bus or MPI bus
+(line 1)",,"Split the desired path of the global data into several circuits. Make sure that
+you only use on bus per circuit."
+11:103,"Cannot read CPU information on module, such as
+rated type, actual type and status of the module.
+Module might not be configured.",,"Check the logical address of the module. Check the slot and the configured
+slot."
+13:31,,"The online connection from the PG to the module (SDB addressee) could
+not be set up. Connection hardware is faulty (e.g. connection cable
+removed).","Clear the fault in the connection to the module (SDB addressee) and you
+can then repeat the attempt to set up the connection in this dialog."
+,,"The online connection from the PG to the module (SDB addressee) could
+not be set up. The module (SDB addressee) is in the wrong operating
+mode.","Change the operating mode of the module (SDB addressee) and you can
+then repeat the attempt to set up the connection in this dialog."
+,,"The online connection from the PG to the module (SDB addressee) could
+not be set up. You have specified an incorrect MPI address with STEP 7.","If you have specified an incorrect MPI address, then:
+1. Acknowledge this dialog
+2. Correct the MPI address with STEP 7
+3. Restart the ""Load"" function"
+13:32,"There is a problem with the connection to the
+receiver of the HW configuration","The online connection from the PG to the module (SDB addressee) could
+not be set up. The module recognized an error with the next
+communications call.","Clear the fault in the connection, change the operating mode of the module
+or clear the storage bottleneck on the module and then you can repeat the
+attempt to set up the connection in this dialog."
+,,Connection hardware is faulty (e.g. connection cable removed),Plug the cable in.
+,,Module is in the wrong operating mode,Check the operating mode.
+,,Storage bottleneck on the module,
+,,Inconsistent HW configuration in the PG,"If the HW configuration is inconsistent in the PG, then:
+1. Acknowledge this dialog
+2. Correct the HW configuration in the configuration table
+3. Restart the ""Load"" function"
+,,"When loading the system data on to the memory card, this message is
+displayed if there are invalid SDBs in the SDB folder.","Delete the system data in the SIMATIC Manager and then restart the HW
+Config."
+13:48,Internal error 0400 Station cannot be generated.,The station cannot be created in the selected project because ...,
+,,The project directory is write-protected,Remove the write-protection for the project directory
+,,"The project directory is on a network drive and the connection cannot be
+set up",Set up the connection to the network drive
+,,No more storage capacity on the target drive,Delete any data no longer needed on the target drive
+Error number: Text: Cause: Remedy:,,,
+13:76,"Inconsistent hardware configuration in the
+programming device.",Inconsistent HW configuration in the PG,"In HW Config analyze the HW configuration via the menu ""Station\Check
+consistency""."
+,,"Folder ""...\SIEMENS\STEP7\S7TMP"" is missing or write-protected",
+,,"Missing authorization or an options package that generates the SDBs for
+a specific module.",
+,"""Error in generating the system data"" when
+downloading or saving a station in HW Config","The environment tag S7TMP is not set. The path
+c:\\SDBDATA\s7hwcnfk\down\r00s02\sdb0.dat is completely or partly
+invalid","Check that the paths in your Autoexec.bat are set as follows:
+SET PATH=""C:\SIEMENS\COMMON\SQLANY""
+SET SQLANY=C:\SIEMENS\Common\sqlany
+SET S7TMP=C:\SIEMENS\STEP7\S7TMP"
+13:77,"While interpreting the system data blocks (SDBs)
+uploaded from the module, an error was
+recognized in the programming device and
+processing halted.","Inconsistent HW configuration in module, occurs when previous loading
+of SDBs into the module was incomplete or faulty.",
+,,"Options package for configuring specific modules (e.g. CPs) is not
+installed",
+13:136,"The maximum possible number of slots within all
+inserted slaves has been exceeded by %1 slot(s).""",More slaves have been configured than permitted by the master system,"Split the slaves across different segments if possible or reduce the number
+of slaves for the master system concerned."
+13:181,"Internal error:Multicomputig cannot have the type
+""inhomogenous""",Error in HW Config of first 4.02.x version,"Add another CPU and then deleted it. The CPU is then automatically set to
+single-computing again"
+13:422,No master system is assigned to the DP slave.,Missing object,"Right-click for pop-up menu, select ""Add master system"" and then configure
+the CP again as slave"
+13:520,"The address entered is already occupied. STEP 7
+has already calculated the next free address.",,Confirm the address suggested by STEP 7 or enter a new address.
+13:4003,"Module cannot be inserted here. You can use only
+DP slaves in a master system.","An attempt was made to connect a device directly to the DP bus, which
+does not have its own interface.",In the HW catalog insert a hierarchy level for this device as DP slave
+13:4040,"The number of slots of the CPU or the master
+system has been exceeded or exhausted.",Maximum number of modules already configured.,New modules can only be slotted after deleting slaves or their modules.
+13:4241,"The offline configuration (%2) differs from the
+hardware configuration of the PLC (%3). Do you
+still want to continue?","An external module (interbus interfacing) from the Phoenix company was
+slotted",Remove external module (error can be ignored)
+13:4337,"Unable to set up connection to module %1
+(R%3!d!/S%4!d!).","The online connection from the PG to the module (SDB addressee) could
+not be set up.",
+Error number: Text: Cause: Remedy:,,,
+,,Connection hardware is faulty.,"Make physical check of connections (cable break,...). Repeat attempt to set
+up connection."
+,,Module (SDB addressee) is in the wrong operating mode.,Check operating mode. Repeat attempt to set up connection.
+,,"You have specified an incorrect MPI address in the dialog box when
+loading to a PLC.","If you have specified an incorrect MPI address in the dialog box, then
+proceed as follows: 1.
+Acknowledge this dialog
+2. Correct the MPI address and trigger the Load function again."
+,,"PG/PC with PROFIBUS interface is connected directly with an intelligent
+DP slave (e.g. ET 200X BM147/CPU) and the PG/PC interface is set
+incorrectly.","Proceed as follows if the PG/PC interface is set incorrectly:
+1. Navigate from the Windows Start bar (Start button) to SIMATIC > Step7 >
+Set PG-PC interface.
+2. In the Access Path tab mark the PROFIBUS CP and click the Properties
+button. 3. In the Station
+Parameters group, deactivate the check box ""Do not activate as only
+master""."
+13:4343,"An update is presently not possible. In one or more
+STEP 7 applications at least one GSE file or type
+file is being referenced.","In the different S7 applications there are objects (stations) open in which
+DP slaves are used. Thus it is no longer possible to install new GSD or
+type files, or even to update them.","Please close the station window in the hardware configuration and all other
+STEP7 applications (such as NETPRO, for example) that could access the
+GSD file . The Hardware Configuration application remains open however
+without content. Then you can install the GSD file."
+13:4341,"The GSE file (type file) %1 contains syntax errors.
+For this reason it cannot be interpreted.","STEP7 V5 + SP3 does a strict check of the GSD files. Some are not
+accepted, e.g. when the name is longer than 23 characters","Create a backup copy of the GSD files; open file (e.g. with Wordpad) and
+edit excerpt from the file Vendor_Name =
+""1234567890123456789012345678901234567890Machine Factory"". The
+name is longer than the max. 23 characters permitted. Correct to:
+Vendor_Name = "" xxxxx Machine Factory"". Save the file and re-incorporate
+it."
+13:4366,Error during complete restart of the module.,"An error has occurred when attempting to start the module (restart).
+Possibly not all the CPUs of the multicomputing station have been
+started.","Start the module or all the modules of the multicomputing station from the
+SIMATIC Manager via PLC and Operating Status."
+,,"An error has occurred when attempting to start the module (restart).
+The key switch of the CPU/FM is in the STOP position",Set the key switch of the CPU/FM to RUN or RUN-P.
+,,"An error has occurred when attempting to start the module (restart). The
+operating mode switch of the CP is in the STOP position",Set the operating mode switch of the CP to RUN.
+Error number: Text: Cause: Remedy:,,,
+13:4589,"Details: (D221); cannot load SDB 7XX"".","H connections are configured in your project. The configuration of high-
+availability S7 connections has changed in STEP 7 V5.1. There are
+individual old configurations whose system data after a change can no
+longer be assigned to the latest configured high-availability S7
+connections. This then leads to abortion of the download.","In the SIMATIC Manager delete the ""System Data"" folder in ""CPU > S7
+program > Blocks"". Then regenerate the system data in ""NetPro""."
+15:20533,"The maximal length of debug info (max. 64 Kbyte)
+is reached.","The maximal length of debug info of 64 Kbyte is dependent of the system
+and can not be added.","The debug info will be increased very fast if there is a lot of accesses to data
+blocks. We recommend in refer to the debug info to reduce the access of
+only few data blocks."
+16:5016,Parameter can not be controlled,"You are trying to control an operand whose address is outside the
+permitted range of the controlling CPU.",Comment out the relevant line in the VAT.
+,,"You are trying to control an operand outside the process image for which
+there is no module available.","It is possible to control of the operand inside the process image even if no
+module is slotted for the operand."
+,,"The data block (DB) that is to be controlled is not in the CPU to be
+controlled. The data block (DB) is write-protected.",Load the DB into the relevant CPU.
+,,The data block (DB) is write-protected.,"You have no write access to this DB. You must disable the READ-ONLY
+attribute for this DB to have write access to it."
+,,You are trying to control a periphery input (PI).,Direct write access to an input module is not permitted.
+,,"With the function ""Release PQ"" you can only control peripheral outputs
+(PQ).",Direct write access to an input module is not permitted.
+16:5053,,"In ""Process Mode"" it is not permitted to control or monitor I/Os.","Consider whether you achieve the desired result by monitoring the process
+image. Otherwise parameterize the CPU for Test Mode (Configure Hardware
+/ ""CPU Properties"" dialog box / ""Protection"" tab)."
+30:13,,"The interface of a called block has been changed. This means that the
+parameters are not transferred properly to the changed block. The block
+call is expanded and then displayed marked as faulty.","STEP 7 up to V4.02.x:
+In the case of expanded block calls you delete the complete call sequence
+(all statements between the limiting PICTURE commands, including the red
+CALL / END_CALL lines) and then re-enter the CALL."
+,,,"STEP 7 V5.x and higher:
+In the case of incorrectly marked block calls you position the cursor in the
+CALL line and select the menu Edit>Block Call>Update. This adapts the
+block call to the new interface. Then check the new assignment of
+parameters."
+30:15,,"The type object has a different time stamp to the opened block. The local
+symbols are displayed as pseudosymbols.","Blocks have been opened either by available users or the blocks have been
+copied with the SIMATIC Manager from the CPU into the OFFLINE
+database. However, since the CPU knows no symbols, the variable names
+are replaced by default names."
+Error number: Text: Cause: Remedy:,,,
+30:50,Error while generating the STL source.,"The STL source cannot be generated, e.g. because it exists already and
+is write-protected, or because there is no more memory available on the
+drive.","Generate a source with a new name or make sure that there is enough
+memory available for the source to be generated."
+30:484,"The displayed block cannot be monitored because
+it does not match the block in the CPU.
+Do you want to download the displayed block to
+the CPU and then monitor it?","This is found to be caused by a discrepancy in the time stamps between
+the online block and the offline block and means that the blocks are
+different. Since the online information relating to the block sequence
+cannot be assigned to the individual program elements of the offline
+block, the block status cannot be displayed.","The programs which are generated with CFC must be downloaded from the
+CFC to the PLC because only this loading function guarantees that the
+configuration data will be consistent with the PLC data. The same loading
+function is also used if you compile and load the ""PLC > Objects"" menu
+command in the SIMATIC Manager or highlight the chart folder and select
+the ""PLC > Load"" function. You may not, however, highlight the block folder
+or individual blocks and PLC > Load, as well as copy the blocks in the
+""Block folder offline"" in order to insert them into the ""Block folder online""."
+30:504,"There are no parameter and local variable names
+available because there is a time stamp conflict
+between the interface of the block and the
+description of the parameter and local variable
+names.","The description of the parameter and local variable names has a different
+time stamp to the interface of the opened block. This is why the
+parameters and local variables are displayed as pseudosymbols without
+comments.","This conflict first arises when you open a block and interface changes made
+online have not been stored in the S7 user program offline and now the
+online block is being opened.
+Interface changes made offline have not been loaded into the CPU and now
+the online block is being opened.
+The interface of a function block or UDT has been changed and now the
+associated instance data block or the data block derived from the UDT is
+being opened.
+An online block that already has a time stamp conflict is copied offline into
+the S7 user program and now the offline block is being opened."
+,,"The cause for this can be an actual hardware fault, or an interrupt conflict
+with another module.","In this case the customer can check whether the MPI LED lights on the
+CP5611 during this time.
+- If the LED does not light, the module could be defective or there is an
+address conflict on the PCI bus (though unlikely).
+- If the LED lights, then there is an interrupt conflict.
+- NT Diagnostics ->Resources.
+- Warning: with some modules you have to switch the computer off/on
+after BIOS changes.
+A possible remedy could also be to plug the CP5611 into a different PCI
+slot."
+30:53,"Problems occurred during the automatic
+generation of STL sources. See Details!","There are protected blocks in the selection list of the STL source to be
+generated.","Remake the selection list, but without the protected blocks. Press the Details
+button in the error message to obtain a Detailed List of the protected blocks."
+Error number: Text: Cause: Remedy:,,,
+30:202,,"The test that ""strikes"" should check whether the block is there online and
+offline.",Save the project under a different name.
+30:473,This operation is not possible in this position.,Programming error.,Correct the code.
+30:503,,"The type object of the block is not available, so the variable description is
+missing. The local symbols are displayed as pseudosymbols.",User error.
+,,"The block is available online in the automation system, but not offline in
+the S7 user program.",
+,,"The block has been copied from the automation system into an S7 user
+program and now this S7 user program is to be opened where it did not
+exist before.",
+,,"A block is opened via ""Available Users"". In this case there is no S7 user
+program linked with the automation system.",
+,,"The associated function block of an instance data block to be opened
+does not exist.",
+32:282,"PG Resourcen Error, by program status of a longer
+FB in PLCSIM","In Step7 V5.0 SP2 with PLCSIM V4.0 under NT, project and block were
+opened online. This probably led to high internal use of resources.","In Step7 V5.0 SP2 with PLCSIM V4.0 do not open the project online, but
+select the status function from the offline project. Setting the virtual memory
+to 256MB does not help"
+33:11,,,
+33:384,"The triggered action cannot be executed at this
+time. Check all other STEP 7 applications and exit
+them where necessary.","The communications module is probably already being operated with
+other settings (e.g. with a different transmission rate).","Please check the baud rate on the PG/PC via ""Set PG/PC interface"" and the
+baud rate of the CPU configured."
+,,There might be other online functions active.,"Close any other active online functions (e.g. by closing the relevant
+windows) and try again."
+,,"Attempt to run the firmware update of a CPU directly via STEP 7 on a
+CPU.",Firmware update is only possible via flash card.
+33:496,"The called function is not available in S7-DOS or in
+the CPU.",,Deinstallation and reinstallation of STEP7
+33:498,Internal error: Function '%1' not implemented.,,Delete metafiles
+33:501,System error!,Attempt to get online as normal user under WinNT.,
+33:511,System error!,Mixed installation,Manual deinstallation of STEP 7 and S7 options packages
+,,NT: insufficient access rights.,You must have at least main user access rights!
+,,NT: main user access rights already assigned!,"Check that the domain user with the main user rights has also been
+transferred into the Main User group on the local computer."
+,EPROM: Memory card is missing,,
+Error number: Text: Cause: Remedy:,,,
+,"The CP 1413 occupies the memory area 000D
+0000 to 000D FFFF (complete D segment) or
+000E 0000 to 000E FFFF (complete E segment).
+Normally MPI boards also use address areas in
+the D segment (from 000D C000) meaning they
+interfere with communication with the CP 1413.","Can occur if the new connection to the database is not set up; for
+example when closing and opening available users, S7db_close and
+open is executed. Sometimes these do not match the current connection.","With laptops, disable the power-save mode. Under WinNT check the user
+rights (only with Administrator rights in V3.x)."
+,,Bus monitor Amprolyzer has been installed.,"Manual deinstallation of STEP 7 and S7 options packages according to
+FAQ."
+30:527,"The interface of the multi instance call can only be
+updated, if the declaration of the multi instance is
+valid in the tag declaration table.","If you click ""Yes"" in the dialog box, the system corrects the corresponding
+entry in the detailed variable view for you.","In case it is impossible to acknowledge the dialog box with ""Yes"" and, hence
+to have the corresponding entry corrected by the system in the tag detail
+view, verify the system date of your PC. The system date of your PC has to
+be set to the current date."
+,,,"If you want to carry out the necessery changes yourself, proceed as follows:
+1. Click ""No"" in the dialog box.
+2. Eliminate the invalid multiple instance declaration by highlighting the
+relevant line in the detailed variable view and selecting the pop-up context
+menu command ""Update Declarations"".
+3. Position the cursor on the block call in the code section and repeat the
+function."
+33:3100,,"When you have set the option ""PG/PC is the only master on the bus"" in
+the dialog by ""Set PG/PC Interface"" and you will make an online
+connection by ""Display Accessible Notes"" to the CP5412 A2, so you will
+receive this error number if not a partner is connected on this modul.",
+33:8242,"The EPROM driver cannot support the set
+programming interface on this computer","PC + external prommer. Cause of error not yet known: probably a setup
+problem where the Registry entries are not checked.","Under
+HKEY_LOCAL_MACHINE\SOFTWARE\SIEMENS\SINEC\LOGDEVICES
+there exist the directories MCDCENT and MCDPG. Where this is the case,
+when using an external prommer, you must delete the MCDPG directory.
+When using an internal prommer, you must remove the MCDCENT
+directory."
+,,Same message with a PG 720/740/760,Bad installation of STEP 7
+Error number: Text: Cause: Remedy:,,,
+33:8256,"The external prommer is not connected to the
+corresponding port or the power supply has been
+interrupted.",The external prommer is not connected to the configured LPT interface.,Connect the external prommer to the configured LPT.
+,,The power supply of the external prommer is interrupted.,Reestablish the prommer's power supply.
+,,LPT on PC faulty.,
+,,LPT incorrectly set.,The LPT port must be set to EPP in the BIOS.
+33:16399,"System error by S7OTBL Server Client-
+Communication.","When this message appears, the S7DOS server (S7otblsx.exe or
+S7otbxsx.exe) doesn't want to start.",The files S7otblsx.exe and/or S7otbxsx.exe are not available.
+,,"This server is a relatively conventional Exe that receives data from the
+line as proxy for programs that want to go online. It therefore has nothing
+to do with databases or OLE/COM - yet.","S7otblsx.exe or S7otbxsx.exe are not in the search path? Is the server
+normally in S7bin or in the system directory? The S7bin directory is
+registered at Setup as CurrentWorkingDir of the applications. If this doesn't
+work, then this message might also be displayed."
+,,"What is the purpose of the server. S7DOS recognizes four call types, 3 of
+which are asynchronous. So that the application can continue to run in
+the case of asynchronous calls and exported if necessary, there must be
+a proxy that constantly ""listens"" to the line and receives any data that
+arrives. If the PLC sends data directly, only then can you start to store the
+applications again from the swap-out file.","Remainders in the memory after manual closing of the server. The server
+allocates shared memory. When it starts and finds its memory still allocated,
+then it discontinues the startup or if it can't allocated the shared memory.
+The first case might occur if you close the server with the Task Manager and
+then continue without shutting down. The server needs approx. 400 KB
+shared memory. This should not be a problem nowadays."
+,,"The S7DOS-DLL attempts to start the server. If this does not work, then it
+tries again and again. It has a timeout of 30 seconds in which time the
+server should be up. If nothing happens during 30seconds - no refresh of
+the application - then this is a clear indication of an unsuccessful server
+start.","In STEP 7 V5 and higher the server checks whether it has the same version
+as the DLL. If not, it doesn't start."
+33:16418,"The monitoring time for a STEP 7 frame was
+exceeded.",,
+33:16418,Timeout by wait of WM_ENDE_L7.,The monitoring time for a STEP 7 telegram has expired.,
+,,"Faulty parameterization of the access point on the MPI, L2 and H1 card or
+on the corresponding bus.","Correct the access point via ""Set PG/PC interface"" or PG/PC ONLINE card."
+,,"There is already a communications load at the moment due to a
+configured S7 communication and therefore no ONLINE connection is
+possible.","Repeat attempt to set up connection or check the S7 connections in the S7
+project."
+,,Cold or warm restart of communications partner.,"Repeat attempt to set up connection or check the power supply of the
+communications partner."
+Error number: Text: Cause: Remedy:,,,
+33:16642,"Online: Internal error - wrong configuration of
+telegram.","Occurs when TeleService is in operation. Error image: a TeleService
+connection is set up between a US-Robotics Sportster Voice 33.6 fax
+modem (local; analog, external) and an M1 GSM module (system side).
+With this constellation an online connection is set up in TeleService, the
+available users are displayed, but if you double-click on, for example,
+MPI=2 (direct), you get this error message. When you close this error
+message, the block container is displayed and the remote connection to
+the system is disconnected (295:20493).",
+,,"Error described above also occurs with a connection between US-
+Robotics Sportster Voice 33.6 fax modem (local; analog, external) and the
+Penril Data Link 19.2 modem (system side, analog, external).",
+33:16647,The online connection was interrupted.,,
+33:16654,"Online: The connection was broken. Check the
+online connection and select the instance data
+block again.",HW connection interrupted.,Check the connecting cables and for correct connection to the network.
+,,"CPU has no power supply.
+Power supply failure.",Reestablish the power supply.
+,,"S7-300:
+Group error LED (SF) lights.","Locate problem by replacing modules. One possible cause could be that the
+bus is unstable or the interface on the module is defective."
+,,Interface is already occupied by another PG connection.,Check whether a remote connection is set up.
+,,Power-save Management is active in the computer.,"Go online again and set up a new connection.
+If the behavior occurs again after a short time, then deactivate the Power-
+save Management.
+Warning: in some computers this can only be done via the BIOS SETUP."
+33:16656,"The error occurs frequently if a station address is
+set which differs from the actual network
+configuration","The error occurs frequently if an MPI address is set, which deviates from
+the actual network configuration. The error can occur in particular with the
+following operations:",Check the connecting cables and for correct connection of the network.
+,,"A block has been copied from an S7 program that is directly under a
+project and inserted in the block container of an S7 program that is under
+a module.",Check the PLC for power failure.
+Error number: Text: Cause: Remedy:,,,
+,,"For setting up the online connection it is no longer the MPI address in the
+Properties of the S7 program that is valid, but the configured MPI address
+of the module.","Check whether when configuring the hardware that an MPI address has
+been configured for the module and stored offline, under which no user
+exists as yet. In this case open the window for configuring the hardware.
+Then either adapt the MPI address in the module (by loading the
+configuration (see HW Config) with the changed MPI address) or change the
+MPI address configured offline to an existing address and save the change
+offline."
+,,"A block has been opened in the ""Available Users"" window and then an
+attempt was made to save the block in a project.","Check whether the configured MPI address in the project actually
+corresponds to the loaded MPI configuration of the MPI network."
+,,"For setting up the online connection it is no longer the MPI address from
+the ""Available Users"" window that is valid, but the MPI address configured
+in the project.",Check whether the MPI address is available in the MPI network.
+,,"In the ""Available Users"" window a user has been marked and the ""Monitor
+and control variable"" function called. Then an attempt was made to save
+the variable, which is only possible offline in a project.","Check the ""Group error message"" (SF) LED of the module (CPU)."
+,,"For setting up the online connection it is no longer the MPI address from
+the ""Available Users"" window that is valid, but the MPI address configured
+in the project.","Check the configuration in the SIMATIC Manager and the network
+addresses set. (Network addresses must not be assigned twice.)"
+,,,"Reset the CPU and CP, then reload the configuration and under NCM read
+out the address so that you can access the S7 controller online with the CP
+1413."
+,,"The block container of a CPU with several DP interfaces cannot be
+opened over the DP interface in the online view. This online view is
+however possible over the MPI/DP interface. A online connection can be
+built up with the function ""Available station"" via the DP-interface of the
+CPU.","1. Check the settings in the SIMATIC Manager: By clicking on ""Extras >
+Settings > Register: View"" the option ""Enable MPI address to be modified""
+should be active.
+2. Switch in the Simatic manager to online view and mark with the cursor the
+S7 program. Right-click, load the object properties and choose the register
+""Addresses: Module"". Select the correct PROFIBUS address, with which the
+PG is connected via the DP-interface of the CPU.
+3. We recommend to notify STEP 7 of the location change of the PGs, if
+you have disconnected and reconnect the PC from the subnet to an other
+with your networked STEP 7 project. This can be executed under
+""Targetsystem > Assign PG/PC""."
+Error number: Text: Cause: Remedy:,,,
+33:16662,"Online: No connection. Node does not accept the
+connection setup. Check the online connection and
+select the instance data block again.",The partner is neither a CPU nor a CP.,Check that the configuration and the actual hardware configuration match.
+,,The partner is not a module in the PLC.,Check the addresses given.
+,,The partner is a different PG or an external device.,"Using the ""Module Status"" function check whether the selected partner is a
+CPU. Check whether its communications partner is slotted in the place
+configured (rack/slot)."
+,,The partner cannot set up any more connections.,Close any further connections to the partner.
+,,"Connection setup via DP interface without the CPU retaining it's relevant
+SDBs.","First configure the CPU also as DP master and load the SDBs onto the
+CPU."
+33:16914,Online: Station not online.,Power supply of the S7 is switched off.,Check whether the CPU is switched on.
+,,Connecting cable is not plugged in or is defective.,"Check that the MPI cable is plugged in.
+Check the cable for breaks."
+,,Configured bus parameters do not match the S7 system.,"Check the following bus parameters: Baud Rate, Highest User Address
+(these parameters must be set correctly on all stations in the network) and
+Timeout."
+,,,"In the Control Panel call ""Set PG/PC interface"" to correct the bus
+parameters."
+,,,Restart MS-Windows and check the error messages of the drivers.
+,,Incorrect access point is selected.,Select correct access point.
+,,PG: hardware fault,Send PG to PG service shop to have the interface checked.
+33:16917,"The function is not supported by the selected
+hardware.","Occurs if you set up an ONLINE connection via a CP5412 A2 with the
+option ""PC is the only master"" (in the ""Set PG/PC interface"" tool) via
+""Available Users"" and there is no user connected to the CP 5412 A2.","Incorrect message, the connection is set up as soon as a user is connected."
+33:16944,Online: It is not found an active contact.,User not connected to the bus.,"Check the connecting cables and the connection to the network. Check the
+PLC for power failure."
+,,"On the PC/TS adapter the LED for correct power supply lights. This LED
+lights if only the 24V supply is connect and the 5V supply is missing. The
+PC/TS adapter however needs the 24V and the 5V power supply through
+the PLC.","Check the connection and whether the 24V and 5V power supplies reach
+the PC/TS adapter."
+,,The TS adapter is set to the wrong transmission rate on the MPI side.,Correct the network transmission rate under Set PG/PC interface -> MPI.
+,,The PC/TS adapter hardware is damaged.,Replace the TS adapter or send it in for repair.
+,,"The wrong driver is preset under ""Set PG/PC interface"".",Preset the correct driver for the TS adapter.
+Error number: Text: Cause: Remedy:,,,
+33:17072,Online: no hardware is found.,No driver selected or incorrect address area of the MPI interface,"PG/PC interface - MPI Properties
+->Select or add driver"
+,,"With Windows NT, check that the PC has an MPI-ISA card and not a
+CP5611.",Can be determined in the BIOS (PCI).
+33:17074,"ONLINE: driver is wrong configured or not valid
+parameter in the registry","MPI-ISA card: installation of an
+STEP7 version (also upgrade and corrections)
+-Win95 hardware recognition has been run
+-other drivers (also CP...) tried out
+-another card installed in the PG/PC
+-sometimes hardware is defective","PG/PC interface - MPI Properties
+->Delete all unnecessary drivers
+->Re-insert and parameterize drivers"
+33:17075,"All stations on this subnet must have the same
+value for the transmission rate. The interrupt may
+not be assigned for other hardware components.
+The MPI addresses in the network must be unique,
+meaning each address may only be assigned
+once. The local Station address must also not be
+greater than the highest station address in the
+programmable controller.",With this message there is usually an interrupt that is double-occupied.,Attempt to set a different interrupt once.
+,,"Occurs with SCENIC PRO M6, Onboard Controller occupies many IRQs",Deactivate primary and secondary controllers in the BIOS.
+,,"WIN 95 does not clearly recognize the interrupt occupied through the
+3Com-Etherlink 3 (ISA) 3c0509b. This can lead to interrupt sources being
+double-occupied.",Select a different interrupt for MPI card.
+,,"The reason for this can be an actual fault in the hardware, or an interrupt
+conflict with another module.","In this case the customer can check whether the MPI LED on the CP5611
+lights during this time.
+-If the LED does not light, the module might be defective or there is an
+address conflict on the PCI bus (not very likely).
+-If the LED lights, then there is an interrupt conflict.
+-NT diagnostics ->Resources.
+-Warning: with some modules it is necessary to switch the computer
+off/on after BIOS changes
+Under circumstances, one remedy is to plug the CP5611 into a different
+PCI slot."
+Error number: Text: Cause: Remedy:,,,
+33:17077,"Online: The setting local address of participant is
+assigned","The TS adapter had the same MPI address (0) as another user in the MPI
+network.","Via the ""Parameterize Adapter"" function, assign to the TS adapter an MPI
+address that has not yet been assigned and save it. The TS adapter has
+MPI address 0 as works default setting."
+33:17088,"Online: The selected communication driver can not
+be loaded. File is not found.","In V2.1 the PG/PC interface hardware is set to ""none""",Select card
+,,Possibly wrong or no driver selected with Windows NT.,Install driver or select card.
+33:17090,Logical device is not in the registry.,,
+,,"The LogDev is in the Registry under the following key:
+HKEY_LOCAL_MACHINE\SOFTWARE\SIEMENS\SINEC\LogName\S7O
+NLINE\LogDevice","This sequence of drivers should be of one mold, i.e. from the same
+generation.
+A mixture of drivers from different STEP7 releases is fatal!"
+,,"No, that would be too simple.
+As usual for such a communication, each layer is implemented as an
+application layer. There is therefore at least one driver for Layer 7
+(s7otbldx,s7otblsx), one for Layer 4 (s7otransx) and one for Layer 2
+(s7ospc2). The drivers for Layer 2 still run in the Ring 0 of Windows, the
+remaining drivers in the Ring 3. There is also a central program that
+manages the transition from Ring 3 to Ring 0 including the transferring
+data to and fro (s7onlinx).",
+,,With the CP 5611: driver warped in the Registry.,"Deinstall and then reinstall under ""Set PG/PC interface""."
+,,"""PG/PC is the only master on the bus"" is not activated (not checked)
+although the PG/PC is the only master.","Active ""PG/PC is the only master on the bus""."
+33:17104,"The version of the adapter connected does not
+support the bus parameters set or it is not
+connected to the adapter type assigned to it in the
+program ""Setting the PG/PC Interface"".","Probably the versions of the drivers and the PC Adapter or PC/MPI card
+are incompatible.","Check in the PG/PC interface whether a TS adapter is addressed with the
+PC Adapter driver. Also check the settings of your PG and the PC Adapter
+(Informations you will find in the FAQ !10420976!)."
+33:17106,Communication to the PC/TS adapter is faulty.,"The PC/MPI cable is plugged into a module that provides no power
+supply.",Connect external power supply.
+,,The connection between PC adapter and CPU is defective.,"Check hardware. Warning: PC adapter needs direct connection to the CPU
+since no external power supply is possible."
+,,Connection between PC adapter and PC is defective.,Check connector pin assignments.
+,,"The TS adapter is not yet set under ""Set PG/PC interface"".","Enter the TS adapter correctly under Step7 Options --> Set PG/PC interface.
+Also pay attention to the properties Direct Connection/Modem Connection."
+Error number: Text: Cause: Remedy:,,,
+33:17108,"Exit the application which is currently using the
+required port (COM port or USB)","Another application already occupies the serial interface or faulty setting
+of COM-IF upon display under NT.","With NT check in the Control Panel that STANDARD is not set for
+Addresses and INT in the settings of the COM interfaces under ""Advanced"".
+If not, remove COM IF and then restart the PC. Now COM IF should be
+newly installed with the STANDARD option."
+33:17109,"The driver for the required port is currently being
+used by another application. Another interface
+parameter assignment configuration may also be
+in use.","The item Direct Connection has been selected in the SIMATIC Manager
+under Options --> Set PG/PC interface.",Select the item Modem Connection under Options --> Set PG/PC interface.
+,,"After interruption of a TS connection the serial driver is still reserved by
+STEP 7.","Close TeleService and STEP 7, then restart STEP 7 first followed by
+TeleService."
+33:17110,"The interface TS adapter is set for a modem
+connection and there is no remote connection to a
+TS adapter.","After dialing into a remote system via TeleService (connection is set up),
+the TeleService window was minimized and PLC --> Display Available
+Users was selected and then this error message was displayed. The
+reason is probably a bad telephone line or a connection that is too slow.","Acknowledge error message with OK and simply reselect PLC --> Display
+Available Users. The error should then no longer appear and the available
+users are displayed as long as the modem connection is still set up."
+33:33285,It is a copied object variant available.,,"Please set up the connection by closing all the S7 applications and then
+restarting them."
+33:33540,"Message from the module. Too few resources
+available.","Message from the PLC when reading block when, for example, two
+upload processes are triggered simultaneously by 2 PG.",Start Trace (Level=0x11000000)
+33:33794,Illegal request of service,The CFB in the communications partner is in the wrong state.,Check the block call in the user program of the communications partner.
+,,PRINT block: Paper out.,Check the printer when printing via the module.
+,,"The program instance in the communications partner is in the wrong state
+(cf. START, STOP, RESUME block).",Set the key switch to RUN or RUN-P before starting the module.
+,,"When implementing a CPU with DP interfacing, you might get the
+following situation: a user is not available on the DP bus, the CPU
+remains about 30 seconds in startup and the RUN LED blinks. Then the
+CPU goes into RUN (as long as no I/O access to the missing I/Os puts
+the CPU into STOP). This is obviously a TIMEOUT effect, because the
+CPU doesn't acknowledge the service in the relevant time.",Download the SDBs and restart manually.
+33:34562,"The service requested is not supported by the
+module.",The service requested is not supported by the module.,"Note the restrictions of the CPU used (menu command PLC > Module
+status, Performance Data tab or look up the performance data in the
+documentation for the module used).
+Use a more powerful module."
+,,The object addressed does not exist on the module.,Check the addressing of the object.
+Error number: Text: Cause: Remedy:,,,
+33:42418,,"Message comes when executing the function
+RAM TO ROM: The service requested is
+not supported by the module.","T h e m o d u le on which you wish to execute this function does not yet support
+this function. Note the restrictions of the CPU used (menu command PLC >
+Module status, Performance Data tab or look up the performance data in the
+documentation for the module used).
+Use a more powerful module."
+,,The addressed object does not exist on the module.,Check the addressing of the object.
+33:53315,"D043: Data Error: The references order is not
+available.","When controlling by monitoring variables, it might happen that when too
+many control jobs are sent to the CPU, the CPU rejects them because its
+buffer is too full.",Acknowledge the message and reduce the frequency of the control jobs.
+33:53343,,,
+33:53346,"Resources error (D062), job list is too full","The variable table (VAT) can no longer be opened although the table
+could be opened previously without any problems using the same
+program and with the same CPU. Probably the VAT concerned has not
+be closed correctly in the CPU.","Please switch off the power supply of your CPU and then on again. Delete
+jobs no longer required (for example, deleting breakpoints, terminating the
+function ""Monitoring/Modifying Variables"", terminating the function ""Program
+Status""). You will then be able to go online again with the VAT."
+33:53347,"(D063) Resources error: the trigger event is
+occupied.","It is no longer possible to monitor a block. This behavior is triggered by
+irregular termination of the process in the operating system.","1. Unplug the online cable of the CPU and wait at least 1 minute. It is not
+enough to unplug the CPU just briefly.
+2. Shut down your programming device and wait 1 minute before switching it
+on again. A simple reboot is not always sufficient."
+,,"Message from the module. This function cannot be executed at the
+moment, because the resource required is already occupied. There are
+also too many test functions activated at the same time and the resources
+available on the module are exhausted.","Delete the jobs that you no longer need (e.g. delete stop points, close the
+""Monitor/control variables"" function, close the ""Program Status"" function)."
+33:53772,Note the restrictions of the module being used.,Message from a module.,"Note the restrictions of the module implemented. (See also in the Message
+from Modules area.)"
+33:53790,"The module to be assigned parameters is currently
+busy assigning parameters to subordinate devices.
+It was been by the modules: 416-2DP + CP443-5
+Extended",,"Remedy: reset the CP via Online HW Config and Download HW Config.
+Repeat the module download when all stations and field devices on the bus
+are started up and in operation. To ensure that the module to be
+downloaded temporarily cannot assign parameters to subordinate devices,
+remove the interconnecting bus cable from the DP interface for the duration
+of the downloading process."
+,,,"In the case of an IM 467, you must do a POWER OFF/ON. This resets the
+IM and the HW Configuration can now be downloaded."
+Error number: Text: Cause: Remedy:,,,
+33:53797,"The distributed I/O system data block is structured
+incorrectly.","A diagnostics address outside the address area has been specified. (For
+example, Win AC lite was installed.)",Change the diagnostics address.
+33:53798,"A mismatched CPU type or an internal structural
+error has been detected during block analysis.","When evaluating the blocks, an incompatible CPU type or internal
+structure error was detected.","Please check whether the type (MLFB) of the CPU that you have configured
+matches the CPU type onto which you are loading.
+Match the CPU types and reload.
+If this is not the case, nevertheless regenerate the configuration data
+(blocks) and load the data onto the CPU. Please check that you are using
+the latest version of the configuration software (with the latest Service Pack)."
+33:53824,D204: The rules of coordinations were broken.,"When attempting to load the system data, there was still a variable table
+open online.",Close the variable table and retransfer the system data.
+33:59906,"The communication software (S7DOS) and the
+interface module (CP) have not the same protocol.","The customer has a STEP 7 V5+SP1 + new PDM and a CP 443-5 Ext >
+V2.7. The new protocol RPC 7 that is used for data record routing
+between the CP and S7DOS. Unfortunately versions up to version V2.7 of
+the CP do not have this function.",Upgrade CP 443-5 to a version >V2.7.
+,,"The user is implementing the right components STEP 7 V5 + SP2 + PDM,
+but has a CP that does not include the DSGW.","Check the configuration and replace the CP implemented with a different CP
+that includes this function."
+34:11,Compiler information: handle not valid.,When monitoring an empty network with the LAD/FBD/STL editor.,Delete empty network.
+34:21,Compiler information: element not found.,The element could not be found in the referenced database.,Check the spelling of your search key and your database reference.
+34:38,Compiler information: Compiler error,,
+34:39,,"You have attempted to rename a variable, but the name is already being
+used.",
+34:152,Reference data could not be generated.,Error in the database.,"The project can be correct+D191ed with ""Save As with reorganization""."
+34:168,"The moduls in the comand structure are protected
+and can not be generated.","One or more direct or indirect reference module is know how protected
+and can not be generated","Please deactivate the option ""Include reference blocks"" in the menue
+""Generate source ..."". You have to create the list of the moduls via manual
+without the protected moduls."
+34:173,At least one symbol assignment has changed,"If you copy a symbolically addressed block from the library of an S7
+project into another project and after you open the block.
+In the original project you generate an STL source from the block.","1. Please make sure that the source is generated with the setting ""absolute"".
+2. Copy the source into the new project; the project can be configured as
+symbolically addressed.
+3. Now compile the source and so generate the block.
+After that you can adapt the symbols as required without the behavior
+described above occurring."
+Error number: Text: Cause: Remedy:,,,
+34:178,"Block call invalid because interface was changed
+in the meantime.","With Step7 V5.0 the instance DB of the DB type is entered in the symbol
+list for an FB call. This is no longer permitted with Step7 V5.0. In this case
+the ""Update Call"" function doesn't work.",Enter the instance DB of the FB type in the symbol list.
+34:4321,"Error in column 1, distribute the program in little
+blocks.",,
+34:4355,"F Ze %2!06d! Sp %3!03d!: No PLC type
+description found for called or addressed block
+%4.",The block called is not available.,The block is to be compiled before the call.
+,,,"In the case of SFB/SFC calls, please copy into your offline database with the
+SIMATIC Manager (block container)."
+,,,"If the SFB/SFC is not available on the CPU addressed, then it should not be
+called!"
+34:4461,"The block %4 that was called/used is protected or
+created by S7-GRAPH and cannot be generated.","You are trying to generate a KNOW_HOW_PROTECT block into an STL
+source.",The block named is protected and cannot be generated into an STL source.
+34:4469,"The declaration range of your formal parameter
+does not match the declaration range of the actual
+parameter, for example, no OUTPUT paramater
+from the actual end can be assigned to an INPUT
+parameter from the formal end.","It is not allowed, that an OUT variable of the calling function block is
+parameterized with the IN variable of the function block called.","We recommend first saving the data temporarily on a static variable. In a
+further network this static variable is parameterized with the IN variable of
+the FB called. The output variable of the higher-level block, the static
+variable and the input variable of the lower-level block must be of the same
+data type."
+34:4485,,"The parameter assignments can be specified in any order in the ASCII
+source. The comments, however, are stored separately from the actual
+online block in the order entered. Thus, when exchanging parameters in
+the source, the order of comments might then be wrong. When the block
+is opened, the comments are then assigned incorrectly. In the worst case
+comments might even be lost. The following comments in the network are
+also affected, even when the exchanged parameters are not even
+commented.","If you have entered comments for parameters, then when assigning the
+parameters, please keep to the order in which the parameters of the block
+called are declared."
+,,"Message appears when opening a VAT. The directory S7USS is missing
+in the SIEMENS\STEP7 directory.",Reinstall STEP 7.
+88:47,"Unable to reach the module %1 by means of the
+online interface that is set.",Programming device is connected to the MPI interface of the CPU.,"Check whether the CPU is routing-compatible. If Not, then please set your
+MPI driver to PROFIBUS and connect up with the PROFIBUS DP. Then
+repeat the desired function."
+Error number: Text: Cause: Remedy:,,,
+256:24,Function open Environment is not implemetiert,Multiple start of the SIMATIC Manager,"In the STEP7_V2/S7met directory delete the files S7CacheA.dat and
+S7ser.dat with Win95 Explorer. The ending .dat can be left out; depending
+on the options package, there is also an S7CacheB -E.dat"
+256:26,Internal OLE Error.,"Not enough space on the hard disk, the database cannot be started.",Create space on the hard disk and set user-defined virtual memory.
+,,Wrong DLL in Windows/System and/or wrong Registry entry.,Start program editor via Explorer and evaluate error message.
+,,,"If the following message appears: ""The file S7HRVERX.DLL is linked with
+the missing export S7OTBLDX.DLL: s7_set_password."", then check
+whether the file 'S7OTBLDX.DLL' is in the Windows system directory. When
+implementing STEP 7 V4.02, you must delete this file from the Windows
+system directory."
+,,,"If the following message appears: ""The file S7KAFAPX is linked with the
+missing export OT5050R.DLL:4224"", check whether the OT5050R 2x is on
+the computer. Rename all except those that are in the S7BIN directory."
+,,With V3.1 when printing,With V3.1 copy block comment into network comment.
+,,WIN 95: the OLE was not installed properly when installing WINDOWS.,Delete Windows directory and then reinstall WINDOWS.
+,,"Message appears when opening a VAT.
+The S7USS directory is missing in the directory SIEMENS\STEP7.",Reinstall STEP 7.
+256:30,"SCL: Programming of S7 moduls. The object was
+deleted.","Error occurs when you export an SCL source, delete it in the SIMATIC
+Manager and then import it again and compile it.","Delete the block contained in the source in the SIMATIC Manager first and
+only then compile."
+256:31,This object was not found.,"An object that fulfills the criteria specified is not available. The function
+triggered cannot be executed. The assignments in the OFFLINE
+database with regard to the HW configuration are no longer consistent.","You can reorganize the addresses with key combination
+<CTRL>+<ALT>+<F11>."
+256:32,Not valid objects.,A link has obviously been lost.,"In V2.1 projects the solution is to use ""Save As with Reorganization"""
+256:35,Internal system error is not repairable.,,
+256:49,"The quoted entry is not in the registry by Windows
+or contains a not valid value.","Error occurred when downloading SDBs into a remote CPU via
+TeleService. The cause here was a bad telephone line connection
+(analog) (in the USA). After several attempts to set up an ONLINE
+connection, the SDBs could be transferred without this error message. An
+attempt was also made to achieve a higher transmission rate with the
+ONLINE connection.","Set up the connection over and over again and wait for a better line quality.
+Try to get a higher transmission rate (<- indicator for better line quality at
+the time of connection set up)."
+Error number: Text: Cause: Remedy:,,,
+256:53,Internal error: Not valid pointer.,"In PLCSIM an attempt was made to load the last simulation in PLCSIM
+via the menu item Simulation -> Last Simulation. Since the old project
+data (e.g. also block interfaces) has perhaps changed in the meantime,
+some of the data of the simulation originally created no longer matches
+the current project.","Create a new simulation via Simulation -> New PLC. The next time you run
+the last simulation the latest new simulation will be loaded without error
+message."
+256:56,There is an internal error in the system.,Project might be damaged.,Terminate application and restart.
+,,,"If the error re-occurs, restart Windows."
+,"STEP 7 V5.x: There is an internal error in the
+system.",,Send project in to the Technical SIMATIC Customer Support.
+256:57,"There is an not repairable error in the system
+during the programming. The function can not be
+implemented.",ProjID.pro might possibly exist when dearchiving.,Copy/move ProjID.pro.
+256:62,"Not repairable internal system error in refer to the
+file ""symlist.dbf"".",Project might be damaged. Computer might have crashed.,Save as ... with consistency check or recreate the project.
+256:63,,,Please see the remedies by errror number 258:15.
+256:68,"The object ... cannot be edited because it is
+currently opened by another application or another
+user.","This message appears when you start the ""File > Save as..."" function
+together with the ""With reorganization (slowly)"" option if there are still
+applications open (e.g. Symbol Table) in the project which is being
+reorganized.","Before reorganizing, close all the applications in the project."
+256:85,,SIMATIC Manager expects formatted names.,Enter correct name with VAT<digit>.
+256:89,"The version 513 of the objekt XR00001 is not
+compatible in refer to the installed software.",Legacy from V2 in XUTIL catalog,Delete the XUTIL directory in the project path
+256:92,The data can only be read.,"This might be data, for example, from a project or library. The cause
+might be that there are no write rights for the directory or drive in which
+the data are located.","Make sure that you have the appropriate rights to access the drive or
+directory where the data is located.
+Remedy:
+Using a virus scanner in Runtime mode can lead to faults. Do the virus
+scanning offline (i.e. at times when you are not working on your STEP 7
+project) or disable the virus scanner on your computer."
+,,"The data is being processed by a different application or by a different
+user.","Save the modifications made in a different application and make sure that
+no other user processes this data at the time in question."
+Error number: Text: Cause: Remedy:,,,
+,The data are read-only.,"You have copied a data backup of a project from a CD onto your hard
+disk and now cannot open this project. The reason for this is that all the
+files of the project have the attribute ""write-protected"" set. There are
+various ways of removing the write-protection from files. One such is
+described below.","1. Mark the project in the explorer, where is saved in the folder and click on
+the right mouse botton (example: D:\...\Siemens\Step7\S7Proj\<Project>).
+2. Open in the context menu the ""Properties"" and select ""Security"".
+3. Here you can allow the ""Read"" and other functions by ""Permissions for
+Administrators"".
+4. Click after on ""Apply"" and ""OK""."
+256:93,The rights of write is missing in the directory.,The directory in which the S7P file is located is write-protected.,"Remove the write-protection from all directories that have to do with the
+project."
+,,Not enough space on the disk < 100 bytes,
+,,"If STEP 7 V4.x is concerned, then it might be that a file has not been
+deleted, which still specifies that the project is still on a write-protected
+drive.",Delete S7APROMX.TXT in the root directory of the project.
+256:94,Problems with the offline folder.,"This message may be due to the fact that the project has been
+dearchived on a computer and edited with an options package whose
+version is no longer compatible with the current STEP 7 version.","First of all check the versions of all the options packages installed on your
+computer which are required for editing the project. You may need to install
+one or other update (service pack) or upgrade (new version).
+You can find information about compatibility with SIMATIC software
+packages for your STEP 7 version in Entry ID 18734363.
+Then make a copy of your project with ""File > Save as..."" and the option
+""With reorganization (slow)""."
+256:100,Authorization of STEP 7 is not found.,"No Basic Authorization installed. Error occurs when attempting to start an
+installed options package. Probably STEP 7 is only authorized as Mini.",Install Basic Authorization
+256:104,Authorization of optional package is not found.,No user rights (authorization) found for the options software on drive C:.,"Install the options authorization from the authorization floppy disk included in
+the delivery package. If you have lost the authorization (e.g. through a fault
+on the hard disk), you can install the emergency authorization to be able
+continue working for a limited period of time. You must then procure a
+replacement for the lost authorization during this limited time."
+,,WIN NT: insufficient access rights.,To operate S7 software under NT you need at least main user rights.
+256:107,,"The object specified could not be copied. There might not be enough
+space left on the data medium. Possibly the target directory is
+momentarily blocked by another application.","Press the ""Yes"" button to continue the copy or save operation for the
+remaining objects. The copied objects might possibly be incomplete or
+defective in the new environment. If you press the ""No"" button, the copy or
+save operation is aborted."
+Error number: Text: Cause: Remedy:,,,
+,,"Possibly another STEP 7 application has opened the object to be copied
+and has thus blocked it. In this case, close all other STEP 7 applications
+and trigger the process again.",
+256:111,Access denied,"Your have repeatedly loaded a program in the SPS and now it is not
+possible to load the program again, also not after a new start.","Start the service ""Server"" in the control panel."
+256:119,"There is no authorization for STEP 7. To operate
+this optional package, you require the authorization
+for ""STEP 7 V4.x"".","No authorization installed or the path in which the STEP 7 project is
+located is too long.",Install the authorization or shorten the project path as appropriate.
+257:5,"One or more objects of a type cannot be
+represented. Unable to load the server
+'s7uvpomx.dll' for _S7UV_LIST_CT-objects. Make
+sure that the required optional packages are
+installed.","The process variable server cannot be started. Installation problem with
+STEP 7. There must not be any incompatible version of WinCC installed
+on the computer.","Please check the version of the software package installed against the
+compatibility list. This is located in your STEP 7 directory as the file
+S7KOMP_x.PDF. x stands for the language:
+a=German b=English, c=French, d=Spanish, e=Italian."
+,,"Mixed installation, a V4.0 or V4.01 was installed before the installation
+STEP 7 V5.x.","Deinstall STEP 7 manually and then reinstall it.
+See FAQ 189025"
+,,Paths in Autoexec.bat are not set.,"Edit Autoexec.bat so that the paths are set or not overwritten, as the case
+may be."
+,"One or more objects of a type cannot be
+represented.
+Unable to load the server 's7hkdmax.dll' for
+_S7H_DP_ETCR_INTGR_414_2_ROCF_CT-
+objects.
+Make sure that the required optional packages are
+installed.","A file required by STEP 7 has not been found. Probably the project
+contains objects for which you need an options package that is not
+installed to process them.",Reinstall the DVA_S7 package.
+,"One or more objects of a type cannot be
+represented.
+Unable to load the server 'p7spumax.dll' for
+_SIPROM_CONTAINER_CT-objects.
+Make sure that the required optional packages are
+installed.","There is no authorization permitting you to integrate SIMATIC PDM in
+STEP 7. This authorization is an options authorization which has to be
+installed in addition to the basic authorization of SIMATIC PDM.","You must install the options authorization for integrating SIMATIC PDM in
+STEP 7."
+Error number: Text: Cause: Remedy:,,,
+,"One or more objects of a type cannot be
+represented.
+Unable to load the server 's7jthomx.dll' for
+_AUT_TH_AT-objects.
+Make sure that the required optional packages are
+installed.","The S7 project to be opened contains an object that has been created
+with the options package Technological Hierarchies. This package is not
+installed or has not been recognized properly after an over-installation of
+STEP 7.",Reinstall the options package Technological Hierarchies.
+,"One or more objects of a type cannot be
+represented.
+Unable to load the server 's7hk31ax.dll' for
+_S7H_PLC315_2DPD_Modul_CT-objects.
+Make sure that the required optional packages are
+installed.",Toolbox of SINUMERIK 840D is missing or is badly installed.,Reinstall the toolbox for SINUMERIK 840 D.
+,,"The S7 project is opened with STEP 7 V5.x and the SINUMERIK 840D
+toolbox is installed with version under V5.","The SINUMERIK 840 D V4.x toolbox is incompatible with STEP 7 V5.
+Please install the toolbox for SINUMERIK 840 D V5."
+,"One or more objects of a type cannot be
+represented.
+Unable to load the server S7HK31AX.DLL for
+_S7H_6ES7_315_1AF03_0AB0_CT - objects.
+Make sure that the required optional packages are
+installed.","Your project contains objects that have been created with the options
+p a c k a g e C7_626P, but this options package is now not installed.",Please install the options packages concerned; in this case C7_626P.
+,,"The message appears with each project you open, even if it doesn't
+contain a C7_626P object.","In STEP 7 you have installed the options package C7_626P with an older
+version than the version of STEP 7. Please upgrade the package C7_626P."
+,"One or more objects of a type cannot be
+represented.Unable to load the server 's7wb53ax
+dll' for _S7H_6GK7_443_1BX00_0Xe_CT-objects.
+Make sure that the required optional packages are
+installed.","The NCM package is not installed and the S7 project contains
+corresponding objects.","Please install the options packages concerned; in this case the NCM
+options package."
+,"One or more objects of a type cannot be
+represented.Unable to load the server
+S7HK31AX.DLL for
+_S7H_PLC314_Modul_CT_objects. Make sure
+that the required optional packages are installed.",Toolbox of SINUMERIK 810 is missing or badly installed.,Reinstall the toolbox for SINUMERIK 810.
+Error number: Text: Cause: Remedy:,,,
+,"One or more objects of a type cannot be
+represented.Unable to load the server
+""s7hsl7ax.dll"" for
+_S7H_DP_PA_LINK_1_ETER_CT-objects. Make
+sure that the required optional packages are
+installed.","The error is probably caused by the permanent upgrading of STEP 7.
+There are several older versions of STEP 7 one on top of the other.",Deinstall STEP 7 manually and then reinstall it.
+,"One or more objects of a type cannot be
+represented.Unable to load the server
+""p7ss357x.dll"" for
+_P7_FM357_6ES7_4AH00_0AE0_CT-objects.
+Make sure that the required optional packages are
+installed.",,
+,"One or more objects of a type cannot be
+represented. Unable to load the server
+S7HK31AX.DLL for _P7_PUSTCH_CPU
+314_CT_objects. Make sure that the required
+optional packages are installed.",,
+,"One or more objects of a type cannot be
+represented.Unable to load the server
+S7HK31AX.DLL for _P7_POSTECH_CPU
+314_CT_objects. Make sure that the required
+optional packages are installed.","Either the tool MCU-Pit is not installed at all (product of
+Simodrive/Sinumerik) or the tool MCU-Pit V4.x has been installed in
+combination with STEP 7 V5.x. Warning: only
+the version V4.10 of MCU-Pit is released for STEP 7 V5.x.","Install the tool MCU-Pit V4.10. Also, in the directory Drive:\
+Siemens\Step7\S7MET you must change the name of the file
+""p7skmcux.mv5"" to ""p7skmcux.met"". Then you must delete all the remaining
+*.DAT files in this directory and restart STEP 7 (so that the metafiles can be
+recompiled)."
+257:7,Type of object is not declared,"A file needed by STEP 7 has not been found. Possibly the project
+contains objects for which you need an options package that is not
+installed to process them.",
+257:8,"One or more objects of a type (%1!X!) cannot be
+represented. Make sure that the required optional
+packages are installed.","There is an object in the project that has to be parameterized with an S7
+options package. This options package is not installed.",Install the missing S7 options package.
+,"One or more objects of a type (%1!X!) cannot be
+represented. Make sure that the required optional
+packages are installed.","There is an object in the project that has to be parameterized with an S7
+options package. This options package is not installed.","Please import the type file for the sensor module IF961-ENC4 configured on
+the FM456."
+257:9,"The project contains objects of the optional
+package 'xxxx' that cannot be processed because
+the optional package is not installed or an outdated
+version is installed.","The project probably contains objects for which you need an options
+package that is not installed to process them, or a newer version of the
+options package.",Please install the options package concerned.
+Error number: Text: Cause: Remedy:,,,
+,,,"In the SIMATIC Manager create a copy of your project (with File > Save
+as..., Option ""With Reorganization (slow)""). Here, the objects that belong to
+non-installed options packages are deleted in the target project. This error
+message will then no longer be issued when working with the copy of the
+project."
+257:24,creat environment is not implemented.,SIMATIC Manager has been started double or computer has crashed.,"With V2.x, delete the *.dat files in the S7met directory. In any case, procure
+the latest correction version."
+257:26,"Not repairable internal system error. The link could
+not be inserted.","Message appears when you trigger the function ""Display Reference
+Data"". Links are distorted in the project.","Use the function ""Save as"" together with the option ""With Reorganization
+(slowly)""."
+,,"Message also appears when forwarding a project in conjunction with the
+symbol table.",
+257:79,"The project or parts of it are currently being edited
+by another application.","This message appears when you start the ""File > Reorganize..."" function
+if there is still an application open (e.g. Symbol Table) in the project which
+is being reorganized.","Before reorganizing, close all the applications in the project."
+257:90,"The project '%1' contains errors in the internal data
+structure.","Project data damage by a crash/power failure on the computer.
+With the ""Details"" button you can receive more information on the error, if
+available.","1. Close all the STEP 7 applications except the SIMATIC Manager.
+2. With the menu command ""File > Save as (with reorganization (slow)) ""
+create a of the project which you can then continue to work with. Because of
+the faults in the existing project, this copy might not contain all the data of
+the original project."
+257:94,"Open of project: <Date and Time>
+S7fupos: Internal error during save of data of
+server S7ombstx.dll.","Inconsistent project.
+Application FM 453 has registered errors when saving the machine DBs.
+A possible cause is the shortage of storage space on the computer.","1. Close all the STEP 7 applications except the SIMATIC Manager.
+2. With the menu command ""File > Save as (with reorganization (slow)) ""
+create a of the project which you can then continue to work with. Because of
+the faults in the existing project, this copy might not contain all the data of
+the original project."
+258:1,Unable to open project data %1.,IDB defined as GDB in the symbol table.,"Define IDB correctly. In the case of V2.1, use Save as… for the project."
+258:17,"The directory C:\Siemens\STEP7\S7proj\temp
+exist already.","The temporary SDBDATA directory created must have been destroyed by
+the crash.","In the directory [DRIVE]:\Siemens\STEP7\S7TEMP delete the directory
+SDBDATA including subdirectories."
+258:20,,,"After archiving call File > Title Field and note the Title Field specifications.
+After dearchiving you can reestablish these specifications manually via File
+> Title Field."
+258:15,,"Some files or data blocks are write-protected and, therefore, the data can
+only be accessed on a read-only basis. This may be due to the fact that
+write access does not exist for the directory or drive where this data is
+located, or the block may have been saved as write-protected for
+reference purposes.","Ensure that you are authorized to access the drive or folder where the data
+is located."
+Error number: Text: Cause: Remedy:,,,
+,,"There are still blocks (FCs, FBs, DBs and/or OBs) open and, as a result,
+the associated projects and directories cannot be deleted.","Close any STEP 7 (and WinCC flex) editors which are still open. We also
+advise you to close STEP 7 (and WinCC flex). Go to the Task Manager to
+check whether there are still any S7 processes in operation and, if so, close
+them. Then start STEP 7 again and delete the project via ""File > Delete""."
+,,,"If the remedies under the last above points do not help, close STEP 7 again
+and delete the project in the Explorer. You can find the folder for the saved
+project in Fig. 01 under
+""<Drive>\Program Files\Siemens\Step7\S7Proj\<Project>
+It is possible that the data areas of the HW Config, NetPro, Symbol Table or
+other STEP 7 components have not been released again completely after
+being closed. You should be able to delete the projects again after rebooting
+your PC."
+,,"If the last remedy point does not help either and the project which you
+wish to delete is still present under the menu commands ""File > Open...""
+and ""File > Delete..."", some of the files in the SIMATIC software may be
+damaged. In most cases, the repair function on the STEP 7 CD can be
+used to restore the software status on your PC.","Otherwise, we recommend that you uninstall STEP 7 completely beforehand
+and also delete the directories in the Registry Editor. Follow the procedure
+precisely as described in our FAQ on ""Complete Deinstallation of STEP 7
+including all Software Packages"". You can find this FAQ in Entry ID 189025."
+275:5020,There is an internal error in the file S7nlvblx.dll.,"Save your entries and close the application. Switch your computer off/on
+and restart the application. If the error reoccurs, then please get in touch
+with your system administrator.",
+276:27,,"No valid connection path between local and remote partners (e.g.
+because of missing network connection or exhausted resources).","HotFix 1 for SP2 clears this problem. This error is still in SP3 at the moment,
+but will be cleared by another Add On."
+276:42,Loopback - Connecting are not allowed!,"Loopback connections are not permitted. You can specify an identical
+address as local and remote user address, but then SDB generation is
+rejected with an error message.","Problem (V4.02 and higher) is cleared with correction release K4.02.5. You
+can ignore this error message, because the communication functions
+despite this error message."
+276:5020,"An internal error occurred. (Call:
+AUTReloadObject)",,
+288:48,"Unable to reach the module (z.B.) 413-2DP by
+means of the subnet assigned to the programming
+device/PC.","In a new project, for example, a hardware upload was made from the
+CPU to the PG. In the attempt to immediately download this upload, this
+error message appears. Problem: under Properties in
+Options -> Set PG/PC interface, 1 is preset as local user address on the
+MPI bus. But this does not match the address configured in the hardware
+upload and hence the error message.","Under Properties in Options -> Set PG/PC interface, set the local user
+address to 0 (or the one configured previously)."
+Error number: Text: Cause: Remedy:,,,
+289:2,"The data base is write-protected or there are not
+enough memory.",XREF with V2.1.0 + standard control,->Correction K2.1.3 or higher
+289:25,Two modules could not be translated back.,XREF with V2.1.0 + standard control,->Correction K2.1.3 or higher
+289:35,"The selected button can not be executed for the
+selected menu.",You have selected a block folder and triggered printing.,"This is how you print out the reference data for the blocks contained in the
+folder:
+1. Mark the block folder.
+2. Select the menu command Options > Reference Data > Display.
+In this way you display the reference data first. A check is made as to
+whether reference data is available and whether it is up to date. If necessary
+you can have the data updated. You can choose which table you want to
+have printed with which filter setting."
+,,,"This is how you print out the all the blocks of the container with the editor
+with which they have been created: 1. Open the
+block folder.
+2. Select all the blocks (e.g. via the menu command Edit > Select All).
+3. Select the menu command File > Print > Object."
+291:416,,The file is occupied by another application for writing.,"Close all the applications that have opened the symbol table and restart the
+function."
+291:416,The symbol table is being by another process.,"In the window that opens, the symbols are greyed out since editing is not
+possible. The Symbol Editor does not show any changes (it is not
+possible to save the table) and it is not possible to access the symbols.","Editing the entries in the symbol editor is still possible. Make the changes
+directly in the symbol table and save it. After saving the table, you can edit
+the symbols in the LAD/FBD/STL editor after closing and opening the dialog
+box again.
+If you want to edit the symbols directly in the LAD/FBD/STL editor, close the
+symbol editor and reopen the dialog box ""Edit symbols"" in the LAD/FBD/STL
+editor. Editing is now possible. You can also simultaneously open the
+symbol table. Changes in other applications are automatically applied in the
+table."
+Error number: Text: Cause: Remedy:,,,
+291:416,The symbol table is occupied by another process,"In this case you can no longer edit, delete or import the symbol table. The
+symbol table is not occupied by any other application for writing. You
+have stored the project locally on the hard disk. The same error is also
+displayed with the ""Save with Reorganization"" function of the project.","One possible cause of the error is that after a program crash of the symbol
+editor, temporary files are not deleted in the S7 data management. In order
+to control this, check your project:
+1. In each project there is a ""..\YDBs"" directory where all the symbol lists are
+stored.
+2. Use Explorer to find files with the suffix .dbf__tmp in this and all
+subordinate directories.
+3. Terminate the STEP7 applications and delete these files. Then you can
+edit all the symbol lists again.
+It is imperative to make sure that you do not delete other files by mistake in
+the project, because this could destroy the project."
+,,,"1. First of all try closing all the STEP 7 applications including the SIMATIC
+Manager. If the symbol table is then opened via the SIMATIC Manager, an
+attempt is first made to clear any inconsistencies in the symbol table through
+a sort of internal ""repair"" service.
+2. If editing the symbol table continues to be impossible, then please reboot
+your computer to make sure that all the STEP 7 applications have been
+closed. Then open the symbol table again.
+3. If none of the above steps is successful, open the ""..\YDB"" path
+mentioned above in the project directory. In this directory delete any files
+with the file name ""deleted.txt"" and ""update.txt"" and a size of 0 KB and any
+empty folders. You will then be able to edit the symbol table again"
+291:560,Internal error: Incorrect object ID.,"The symtabs function has failed - ambiguous entry in the symbol list for
+FC names.",Delete the line for the FC in the symbol table.
+,,"When calling an FB, a DB was assigned that is already assigned to
+another FB in the symbol table.","Assign a different DB in the call or correct the assignment in the symbol
+table."
+,,,"Copy out the symbol table, then open and close the block, and then copy
+back the symbol table."
+291:1392,"No symbol table found. No symbol could be
+created.",,
+292:19,Error by opening of a file.,The file either has no valid B+C287trieve format or it is damaged.,Replace the file or delete it.
+293:1,The reference data could no be generated.,The data medium is write-protected.,Remove write-protection.
+,,Under NT: possibly insufficient access rights.,You need at least main user rights.
+293:2,"The reference data could no be generated for the
+SFC14 or the FC22.",,"Use the function ""Save as"" together with the option ""With Reorganization
+(slowly)""."
+Error number: Text: Cause: Remedy:,,,
+294:6,Unable to copy the block %2.,The OBxy is not supported by the CPU.,"This OBxy cannot and must not be downloaded into this CPU. You can
+possibly use another OBxy with a similar function, which is suitable for this
+CPU and then download it."
+,,"When programming an EPROM via an external prommer: the prommer
+cable is plugged in incorrectly.","Plug in the prommer cable so that the connector with the yellow sticker is
+connected to the prommer."
+,Illegal command in the modul,"The module FCxx could not be copied.
+(D280) Error during compiling of module in the S7-300.","This message appears, if your program has a marker (example M8000.0)
+which address is not supported in the CPU. Change the address and repeat
+the download. If the SF LED is not still erased after download, switch the
+CPU into STOP and after in RUN again."
+294:23,"Unable to copy the block %2. Do you want to
+continue the copy procedure?",A block of this type already exists and it may not be overwritten.,Delete the equivalent block in the ONLINE database and repeat the transfer.
+,,The automation system is in the RUN operating mode.,Put the automation system into an operating mode that permits copying.
+,,,SDBs can only be transferred in the STOP mode.
+,,"A block of this type and number is not permitted on the automation
+system.","Check whether a block of this type and this number may be copied onto an
+automation system of the present type."
+,,"The block is using operands beyond the area of the CPU (e.g. EW 128
+with S7-300 CPU).","Check the block with reference to the addresses used whether they do not
+exceed the permitted address area in the CPU implemented."
+,,"The block is using statements that are not realized in the CPU (e.g. ENT
+with S7-300 CPU).","Check the block with reference to the commands used based on the
+operations list for the CPU implemented."
+,,"The block has to much local data (e.g. more than 256 bytes with S7-300
+CPU).","When implementing an S7-300, you must reduce the local data area for this
+block. If you implement an S7-400 CPU, you can parameterize the
+necessary local data area for each run level."
+,,"Referenced block SFC, SFB is not permitted in this module.","Check whether the blocks that are to be downloaded are permitted on the
+CPU concerned."
+294:27,"The block %2 is being processed by another
+application or another user at the moment.\nDo
+you want to create the reference data for the saved
+version of the block?","Multi-users: the block specified is being processed at the moment by
+another application or by another user. You can create a copy of the last
+version saved or cancel the function.","If you are working with several colleagues on your S7 project, then it is
+recommended not to process this block without prior synchronization with
+your colleagues."
+,,Single Users: the block is opened ONLINE as OFFLINE.,Close the block once; ONLINE or OFFLINE.
+295:17240,,,
+295:17248,"The order was interrupted to the TS-Adapter
+because of transmission error.","The initialization string is not correct or in this form does not work together
+with the modem connected to the system.","The initialization string in the TS adapter must be modified in the direct
+operating mode so that it matches the modem."
+Error number: Text: Cause: Remedy:,,,
+,,"On the system there is not a TS adapter but a PC adapter on the modem.
+The TS adapter has order number
+6ES7972-0CA3x-0XA0",Exchange the adapter for a TS adapter.
+,,"Possibly the terminator on the PROFIBUS cable on the system side
+(TeleService) is switched on.",Switch off the bus terminator.
+,,"Possible the modem is sending too much information to the TS adapter
+so that it doesn't get the CONNECT. (Occurs with V5 adapters)","Add W0 to the Initstring in the adapter (this suppresses the sending of
+extended data)"
+,,"If you attempt to get connected via long telephone routes (abroad), then it
+might happen that some feedback messages have too long a runtime.","In TeleService under Options -> Settings -> Monitoring Times, change the
+value for Acknowledgment/Signal from Automatic to 5000ms / 4000ms."
+295:20484,"There is not installed a modem which is
+compatible with teleservice.",,"Install a suitable modem and set the modem to correspond with your
+configuration. Define the TeleService-specific properties of your installed
+modem in the menu command Options > Settings."
+295:20486,"The TAPI-Order was closed with the error ""Order
+failure"".","Basically communication between (local) PC and modem (via the serial
+connection) is not correct or cannot even be started.","Check the connection between the (local) PC and modem for both hardware
+and software/driver faults."
+,,"Under Windows (Start --> Settings --> Control Panel --> Modems) an
+incorrect (or no) modem driver has been installed, which does not work in
+conjunction with the modem connected.","Install the appropriate modem driver for this modem. Also set this new
+modem in TeleService under Set Connection ---> Modem (double-click the
+telephone book entry and then select the Modem item)."
+,,"The wrong modem driver was selected under TeleService from the
+selection list of modems that are already installed under Windows.",Set the correct modem driver in the selection list.
+,,The modem is not connected to a serial interface (or to the wrong one).,Connect the modem to the correct serial interface.
+,,The modem is switched off.,Switch on the modem.
+295:32768,"TAPI-subsystem dues supply not expected error
+code <TAPI-Error-Code>",,
+,,ALLOCATED 0x80000001,
+,,INVALDEVICECLASS 0x80000023,
+296:5309,"The variables of the instance data block which
+contain system attributes for messages are not
+aggree with the variables in the function block.",Clearance: check the function block and save it again if necessary.,
+Error number: Text: Cause: Remedy:,,,
+300:13,Data basis could not be started.,"Occurs as a consequence of message 256:94 and details 256:24/256:63
+when executing the function ""Reorganize"" or ""Save as… with consistency
+check"".
+This occurs when a link is lost in the SYBASE database.","The problem can be solved by deleting the file AMDBASE.LOG. Search in
+your project path for the log file of the SYBASE database (Amdbase.db).
+WARNING: if this file does not exist, then search the project for LOG or LOC
+files."
+,,,"If you cannot find this file, then proceed as follows.
+Restore the log file by entering the following start line via ""Start/Run..."" on
+the Windows user interface:
+dbsrv50 -f D:\..Project path..\Project\AMOBJS\Amdbase.db
+For example, for the ""Deissw01"" project on drive ""C"" in the standard STEP 7
+project directory you enter
+dbsrv50 -f c:\Siemens\step7\S7proj\deissw01\Amobjs\Amdbase.db
+The -f (force) switch has the effect that the DB file is recovered to the last
+status saved even if the necessary log file is not available."
+,,"Occurs after dearchiving a project in STEP 7 V5.0. It has been created in
+the version V4.02.x.",After <Save as...><with reorganization> again clears the problem.
+314:8,"At least one of the selected variables cannot be
+inserted at this point.","If, while you are processing a project in STEP 7 V5.3 which has been
+created with STEP 7 V5.1 and the error message described above
+appears in the LAD/STL/FBD editor when you insert a declaration line
+within an FB or FC, please check the names of the formal parameters in
+the declaration line for the block in question. This could be due to the fact
+that the name ""Ret_Val"" has been assigned to a formal parameter (IN,
+OUT, IN_OUT, STAT or TEMP variable).","In this event, the name ""Ret_Val"" must be renamed.
+1. From STEP 7 version V5.2 onwards, users may no longer define the key
+term ""Ret_Val"" for the formal parameters. Version V5.2 still supported the
+entry ""Ret_Val"" in the declaration line in STEP 7 projects which were
+created in V5.1 and did not stop the block.
+2. However, STEP 7 version V5.3 no longer supports the name ""Ret_Val"" in
+the declaration line, and the behavior described above occurs."
+724:21,"OM TD/OP: Data basis conflict of version
+file: C:\[step7-pfad]\[Projektname]\S7TDOP.DBF
+has the version 50000.
+This program expected the version 10000.","The versions of STEP 7 and ProTool are incompatible with those of the
+project. STEP 7 is V4.02.x and ProTool V5.",Upgrade STEP 7 to V5.x or deinstall ProTool and install V4.02 of ProTool
+1230:1001,Opening of the station failed.,,
+1230:2001,Unable to insert the object.,"You have tried to slot an object that is not available (e.g. the header for an
+object group or module class).","Select an object (subrack, module, interface module...) from the hardware
+catalog, which you can slot in the required location."
+Error number: Text: Cause: Remedy:,,,
+1230:2009,"Changes cannot be made. Save your changes in
+other applications","The error message indicates that access to the object is not possible at
+the moment and that the object could not be blocked. This error message
+can have various causes:
+1. The object is currently being processed by another application or user
+and has therefore been blocked.
+2. There is insufficient memory available.","The following steps permit you to process the object:
+1. Save the changes made in all other applications and make sure that no
+other user is currently processing this object.
+2. Make sure that there is sufficient virtual memory on your computer, see in
+this case the informations of the Readme file of STEP 7 by 3.2 Memory
+Requirements.
+Notes:
+Please consider the requirements of the actual installed STEP 7 software in
+refer to your PC, which are described in the readme file."
+1230:2015,Creating the configuration data failed.,Hard disk is full.,Deleted all the unnecessary files on the hard disk.
+,,"No folder ""...SIEMENS\STEP7\S7TMP"" available or the folder is write-
+protected.","Remove the write-protection from the folder ""...SIEMENS\STEP7\S7TMP"" or
+create the folder."
+,,S7 program or M7 program container is missing.,Create S7 program or M7 program container.
+,,Defective project?,"Use ""Save as... with reorganization"""
+,,"The compilation (= creation of the configuration data) has been
+interrupted.",Reinstall STEP 7.
+,"Error attempting to generate the configuration data.
+Message refers to the V2-projects by Save as with
+Reorganization.",Subnet addresses of different networks are identical.,"Check the subnet addresses and make appropriate corrections in the case
+of identical subnet addresses."
+1230:2016,No changes can be made in this station.,No more modules can be inserted in the HW Config.,"Use ""Save as... with reorganization"" for the project. Please see also the
+instruction by the error message 256:92."
+1230:2018,"Another application made changes to your station.
+Close this station and re-open it.","Another S7 application has changed, for example, via network, the station
+currently being processed. The changed objects (subrack, modules,
+slaves, etc.) can no longer be displayed.
+The station has been blocked for further processing.","You can remove the block by closing the station and re-opening it. This
+makes the changes of the other application effective."
+1230:3000,"The system data could not be recreated because
+the configuration is inconsistent.",,Check consistency.
+2508:1099,"Error by programming of error diagnostic data for
+<name of variable>.","Group message, behind it detailed messages are listed that occurred
+during the last function executed.","Please press the ""Details"" button and analyze the detailed messages."
+Error number: Text: Cause: Remedy:,,,
+2517:5,The start of an application has occurred an error.,"Message appears when opening a HIGRAPH source.
+With the following software constellation:
+STEP 7 V5.0 + SP 3
+S7-HIGRAPH V4.01.1
+S7 project created with S7-Higraph V5.x",Cleared with K4.01.2.
+2665:4156,"Because of the changes made to the configuration,
+the configuration file for this SIMATIC PC station
+has to be created again with NetPro. To do this,
+use the NetPro menu command ""Network > Save
+and Compile ...""",,
+2760:11,communication to higraph cannnot be accessed,,
+2775:777,Address is not correct.,You have selected a user address that is already occupied.,Please select another address or connect your user to another subnetwork.
+2775:785,"The bit rate of 187,5 kbit/s for the modul MBK-P is
+not supported in station SIMATIC 400(1).","In STEP7 V5+SP3 and higher the baud rate must not be written with a
+comma, e.g. 187,5_supp =1","Open and edit the file: enter '187.5_supp =1' instead of '187,5_supp =1'.
+Execute Options -> UPDATE CATALOG."
+2775:1829,"The data management of ""Set PG/PC interface""
+can not save the requested value.","An attempt was made to save a parameter value in the database of the
+program ""Set PG/PC interface"". This write procedure could not be
+concluded successfully.",
+2775:1860,"Caution: there are other active nodes (sender
+parameter assignment master) in station %1 which
+also have to be reloaded.",,
+3020:13,"File name entered is not valid, or
+Project is invalid,
+if you attempt to open a project.","This message appears when you stored your project on a network drive
+which is connected to the following path via the Internet Explorer or a
+logon script:
+\\<Servername>.<DNS-Suffix>\<Share> (Example:
+\\computer.siemens.de\share) or
+\\<IP address>\<share> (Example: \\192.168.1.1\share).
+However, this path cannot be found since the network connection is
+stored only symbolically in the registry.","In order to be able to open your project, please connect the share (without
+the domain name) via
+\\<Servername>\<share> (Example: \\COMPUTER\share).
+Note:
+If you have to enter the pathname via the IP address, you can establish a
+connection between the IP address and the computer name in the ""hosts""
+file. The file can be found with the Windows path ""\system32\drivers\etc""
+(Example: C:\WINNT\system32\drivers\etc)."
+Error number: Text: Cause: Remedy:,,,
+3020:25,"Projects which are opened can not be archived.
+Make sure that in non STEP 7 application objects
+of the projects ... are opened in the directory C:...","The reason for this error message are blocked files, which are also
+blocked though all the windows of editors and projects are closed. This is
+possible when the program is activ and the last access was to the
+archived project. Souch programs are not always to see as user window.","With WinCC or WinCC flexible will be started a SQL server which should be
+stopped. You will find this in the task bar. You will also find here icons of
+WinCC flexible, which are mini web or smart server. If you will stop these
+applications the archiving should be possible again. If not, then start the task
+manager and check in the process list whether the process ""hmies.exe"" is
+activ. If you delete this process, then the archiving should be possible again."
+3020:47,,"This processing status is triggered by PKUnZip in different situations, in
+particular always when an existing project is overwritten during
+dearchiving and in the dearchiving options the entry ""Overwrite objects
+with identical names"" is not set to ""All Files"".",In this - most common - case you can ignore the message.
+,,"The archive file has not been created with PKZip. In particular archives
+that have been created with WinZip or ""PKZip for Windows"" and contain
+""long file names"" can lead to this error.",Execute dearchiving with the archiving program used to create the archive.
+,,"The archive file has been created with a version of PKZip that is newer
+than the version of PKUnZip that is installed on the computer.","If you are using an old version of PKUnZip, install the latest version."
+,,"The archive file is damaged. Checksum errors (so-called CRC errors)
+have been detected for one or more files. Therefore the files could not be
+dearchived correctly. The cause of such checksum errors can in particular
+be:
+damaged floppy disks, transfer errors when copying,
+in particular with network drives, file transfer or e-mail,
+or at the time of archiving the project or parts of it were still open.","Try to get a good copy of your archive file. If this is not possible, you can try
+to save what is possible to save using the repair option of PKZip. Start the
+MS-DOS prompt and enter the command 'pkzipfix archiv'. A file is created
+called pkfixed.zip - if pkzipfix can even identify the file as being ZIP-
+c o m patible. From the SIMATIC Manager dearchive the file pkfixed.zip
+instead of your original archive file."
+,,"The directories in the archive file have too great a nesting depth to be
+able to be unpacked under the specified target directory. PKUnZip cannot
+create any directories whose absolute path name is longer than 66
+characters (from the drive designation to the ‘\’ at the end of the path).","You can either dearchive the archive file with PKUnZip as follows: select the
+target directory for dearchiving the Root directory of drive. Close all the
+STEP 7 applications. Move the dearchived project directory with the
+Explorer to the location where the project is to be stored. Start the SIMATIC
+Manager and open the project via the ""Browse"" button in the ""Open"" dialog.
+Or you can use WinZip or PKZIP 2.50 directly at the required location."
+,,"The project already exists and individual files could not be overwritten
+when dearchiving, because they are write-protected.","Delete the file attribute ""write-protected"". You can do this for example for
+individual files from the Explorer via the file properties, or you start the MS-
+DOS prompt, get into the project directory using ""cd"" and then enter the
+command ""attrib -r /s"". Now repeat the dearchiving procedure.
+D330"
+Error number: Text: Cause: Remedy:,,,
+,,"The project already exists and individual files could not be overwritten
+when dearchiving, because the project or objects from the project are
+already open.","Close all the STEP 7 applications, restart the SIMATIC Manager and
+dearchive the project without opening the project to be overwritten
+beforehand."
+,,,
+,,,
+3020:49,"Unable to retrieve the project. The archive file
+might be defective.","The archive file has not been created with PKZip. In particular archives
+that have been created with WinZip or ""PKZip for Windows"" and include
+""long file names"" can lead to this error.",Dearchive using the archiving program with which the archive was created.
+,,"The archive file has been created with a version of PKZip that is newer
+than the version of PKUnZip installed on this computer.","If you are using an old version of PKUnZip, then install the latest version."
+,,The archive file is damaged.,"Try to get a good copy of your archive file. If this is not possible, you can try
+to save what is possible to save using the repair option of PKZip.
+1. Start the MS-DOS prompt and enter the command 'pkzipfix archiv'. A file
+is created called pkfixed.zip - if pkzipfix can even identify the file as being
+ZIP-compatible. From the SIMATIC Manager dearchive the file pkfixed.zip
+instead of your original archive file."
+,,"The data medium or the directory in which the dearchived project is to be
+stored is write-protected, or you have no write authorization for the
+network drive.","Remove the write-protection or obtain write authorization for the network
+drive or dearchive the project into a different directory."
+3022:4121,"The FB is not available
+The instance declaration is missing","If during compilation in S7-PDIAG the mentioned error message, then it is
+probably the case that the S7-PDIAG blocks have also been copied from
+another STEP 7 during the copying procedure. This is not permissible,
+because the associated SFBs are then no longer up to date.","1. Delete all SFBs. Open and save the FBs, FCs and OBs, which fetches
+the SFBs from the current library.
+2. Now compile the blocks of the S7 program again with S7-DIAG, which
+should solve the problem."
+,,,"Make the Check Block Consistency and compile the complete STEP 7
+program."
+3022:4121,"Invalid data type..."",","The error message is probably caused by an associated value with an
+invalid data type. Please also refer to the information in the Online Help of
+S7-DIAG concerning the data types that are valid for associated values.","Excerpt of the Online Help of S7-PDIAG:
+""This associated value can have a parameter of the type BOOL, BYTE,
+CHAR, WORD, INT, DWORD, DINT or REAL from the E, A, M or DB areas.
+Likewise you can enter local variables of an FB to which an error definition is
+attached. These are extended upon generation according to the type
+instance concept."
+3280:503,"The registry database is not set up correctly for the
+SIMATIC Manager. Install STEP 7 again.",Installation is faulty.,
+Error number: Text: Cause: Remedy:,,,
+3280:708,"No objects can be copied or moved from
+projects/libraries of the current version to
+projects/libraries of version 2.x.","In STEP 7 there is no downward compatibility, the data management in
+V2 and >V3 is not the same, so blocks created with STEP 7 V3 or higher
+cannot be copied or moved into V2.x projects .","An attempt was made to copy or move an object from a version V3 project
+or from a version V3 library into a version V2 project or library. This is not
+possible because of incompatibility."
+3280:709,"The project or the library '%1' is on a write-
+protected medium.","The project is either located on a write-protected floppy disk or you do not
+have write authorization for the drive.","Remove the write-protection if you want to modify objects in this project.
+Please see the instruction by error message 256:92."
+,,"The project catalog was released in the Windows Explorer with read/write
+access.","Release higher-level catalog of the project (e.g. Step7\S7Proj) for access
+via network drive."
+3280:712,"File name entered is not valid.
+Project is invalid.
+(If you attempt to open a project)",,Please see the informations by error message 3020:13.
+3280:999,The internet explorer is not installed in your PC.,"STEP 7 V5 has been installed without the Internet Explorer and you are
+trying to start the ONLINE Help.",Please install the Internet Explorer V4.0 and then reinstall STEP 7.
+,,"The ONLINE Help was started and the Internet Explorer was installed
+after the installation of STEP 7.",Reinstall STEP 7.
+3531:1,The diagnostic block could not be created.,"Standard blocks in the program originate from the PLC and not from the
+library.
+If the project has been created per upload by the PLC with an earlier
+version of STEP 7 or standard blocks have been copied from the PLC
+into the offline program, then the interface of the SFBs and SFCs in the
+project only has a Default Symbolic (parameter name = ""IN0"", ""IN1"" etc.
+instead of symbolic names as described in the Help). In this case the
+same error is reported.","Check your interface to the user block.
+If your user program contains standard blocks with Default Symbolic, then
+please delete these SFBs and SFCs and reinsert them from the library. This
+corrects the interface of these blocks."
+3534:63,"While reporting a system error: an internal error
+has ocurred","To be able to generate the reference data without this message, proceed
+as follows:
+1. Delete Diagnostics-FB49 and Diagnostics-DB49 from your STEP 7
+Project resp. Block container.
+2. Newly generate the reference data by selecting the block container and
+the menu task Extras > Reference data > generate.
+This message does no longer appear when generating reference data.","You can regenerate the FB49 and DB49 in the Hardware-configuration as
+follows:
+1. Highlight the CPU with the cursor. Under ""Extras > reporting system
+errors... > Register: General"", you can now newly generate the Diagnostics-
+FB and the Diagnostics-DB. Finally, save and translate the Hardware
+configuration once more.
+2. You can also newly generate the Diagnostics-FB and the Diagnostics-DB
+by means of ""Save and translate"" if you change the following setting: Under
+""Station > Properties ... > Register: Settings"" the option ""Calling when saving
+and translating"" has to be activated."
+3534:94,Inconsistent of hardware configuration,"The hardware configuration is either inconsistent or it was made changing
+which are not still save and compiled.","If it is not possible to compile the hardware configuration after this message,
+so make a little change in the hardware configuration. After it is possible
+again to save and compile."
+Error number: Text: Cause: Remedy:,,,
+4050:1,,"The resources file for this language is not in the directory in which you
+have installed this program. This is why the menus, dialog boxes and the
+online Help are in English in S7-PLCSIM.","Install the files that are required for the language desired. If necessary,
+reinstall S7-PLCSIM and select the required language."
+4050:2,,"Closing the subwindow ""CPU"" simultaneously closes the simulation
+session. However, you can close a CPU and start a new simulation
+session with another CPU.","Make sure that you always have on subwindow open in S7-PLCSIM. If you
+need more space on your screen, you can reduce the subwindow to icon
+size."
+4050:3,,"You can only change the MPI address if there are no applications linked
+with the simulation.",Close all the associated applications or disconnect from the simulation.
+4050:4,,"You can only ever have one simulated automation system activated. If
+you open a second simulated automation system, the one opened first is
+closed. If you want to continue the function, press ""Yes"". Press ""No"" to
+cancel.",
+4050:5,,"You cannot exit S7-PLCSIM if there is still a connection set up to STEP 7
+(e.g. SIMATIC Manager, variable table, program editor). STEP 7 indicates
+in a message that the connection to the CPU has been interrupted. You
+can then continue working offline.","Before exiting S7-PLCSIM you must close the associated applications in
+STEP 7 or clear down the connection to STEP 7. (In order to disconnect the
+SIMATIC Manager from S7-PLCSIM you must close both the online program
+and the offline program.)"
+4050:6,,"When doing an overall reset (MRES), all the blocks are deleted and the
+memory of the simulated automation system is reset.","If you want to abort the overall reset, click ""No"". If you wish to do an overall
+reset, click ""Yes"" to continue the function."
+4050:7,,"You have attempted to open a simulation that has just recently been
+used, but which is no longer available or cannot be found. S7-PLCSIM
+deletes the file name from the menu.","Find the simulated program using the menu command Simulation > Open
+PLC. If the program is no longer available, you must recreate the simulation."
+4050:100,,"The address you have specified has a format that STEP 7 does not
+support.","Enter the address in a format that is supported by STEP 7 (IEC or
+SIMATIC).
+Examples:
+IEC: PIB0, PQB0, PIW2, PQW2, I0.0, Q0.0
+C1SIMATIC: PEB0, PAB0, PEW2, PAW2, E0.0, A0.0, Z1"
+4050:101,,"The value you have entered is not in the valid range for the selected
+format. For example, you cannot enter ""FF"" (hexadecimal value) in a field
+in which binary values are supposed to be entered.",Enter the value in a valid format or change the format of the field.
+4050:102,,The value you have entered is not a decimal number.,"Enter decimal number (e.g. 0, 1, 13)."
+4050:200,,"Since there is a danger of changing an actual online program by mistake,
+you cannot communicate with ""real"" CPUs whilst the simulation is
+activated.","Close all the windows and applications that have been used in the
+simulation of your program before going online with an actual CPU."
+4299:158,No connection to FM355/455.,Old firmware on the FM.,Upgrade the firmware of FM.
+Error number: Text: Cause: Remedy:,,,
+4431:2011,"The Authorisation for SIMATIC PDM is not
+installed. SIMATIC PDM could not be started.","Authorization permitting you to integrate SIMATIC PDM in STEP 7 is
+missing. This authorization is an option authorization that has to be
+installed in addition to the basic authorization of SIMATIC PDM.","You must install the additional authorization for integrating SIMATIC PDM in
+STEP 7."
+4502:298,System error 33,"This meesage appears during the upload of the hardware configuration. It
+is possible that the load of the SDBs was not complete or incorrect.","Make a reset of the CPU modul and load the hardware configuration of the
+offline project again."
+4502:625,"An error occured while creating or interpreting the
+system SDB's...."".
+Error while creating systemdata...."".","Regarding mentioned messages occur while saving and translating in HW
+config if the following applies:
+1. You projected and assigned a CP to a subnet in your Hardware
+configuration. Files with the extension .""err"" are missing in the folder
+""<Siemens-index>\Step7\S7WBX\RUL"".
+2. Files with the extension .""err"" will be deleted by some optimization
+programs - like e.g. TuneUp.","Step7 has to be reinstalled or the missing "".err"" files have to be copied from
+a different computer in order to be able to translate the hardware
+configuration again.
+Attention:
+If you copy the files from a second STEP 7 installation, please make sure
+that this installation contains exactly the same STEP 7 version, the same
+servicepack and the same hotfix."
+4561:142,"The Authorisation for Standard PID Control is not
+installed.",..,..
+"Meldung von
+Baugruppen",,,
+D033,Error of protokol,Job jam on the CPU.,"In the HW Config increase the setting for the communications load for the
+CPU."
+D042,Error during notice by module status of CPU400.,"A PQW is being monitored. You cannot read back PQWs, the CPU then
+reports this error.",Monitor values with VAT and wait for new CPUs.
+D043,Error of data: The reference order is not available.,"When controlling using Variable Monitoring it might happen that if too
+many control jobs are sent to the CPU, they are rejected by the CPU
+because its buffer is full.",Acknowledge the message and reduce the frequency of control jobs.
+D062,"Resources error, job list is too full.",,Please see the informations by error message 33:53346.
+D063,,,Same as D064
+D064,,"CPU 300 does not delete trigger events, the events then build up.","Switch CPU off/on. Problem cleared in the following CPUs:
+6ES7 313-1AD01-0AB0
+6ES7 314-5AE01-0AB0
+6ES7 314-1AE02-0AB0
+6ES7 315-1AF01-0AB0
+6ES7 315-2AF01-0AB0"
+D0AA,"D0AA: The time limit is exceeded in process
+operating.",Communications load is too high.,Increase the communications load of the CPU from (default) 20% to 50%.
+Error number: Text: Cause: Remedy:,,,
+,,"Message appears with the function ""Control via VAT"" to an address from
+the memory areas I, O, M, Timer, Counter, DB, which is not available in
+the broadest sense.","Please check the syntax of the address in the VAT, or whether the address
+is available in the system or perhaps not addressable (wiring fault, hardware
+fault)."
+D204,"D204: An error in the rules of coordinating has
+occured.","When attempting to load system data, in the background a variable table
+was still open online.",Close the variable table and retransfer the system data.
+D20C,"The OB can not be copied because the belong
+layer is not available.","Message comes from a CPU. An attempt is being made to transfer an OB
+onto this CPU, which is not permissible.","If possible, rename the OB or even delete it in the OFFLINE database and
+retrigger the transfer."
+D240,An error in the rules of coordinating has occured.,"Occurs if a block that is to be overwritten online is still being accessed. In
+V4.01 with blocks in the call environment.","Deactivate the setting ""Call path with test/call environment"", then the block
+can be downloaded."
+,An error in the rules of coordinating has occured.,Occurs when an object is accessed online (also VAT).,Close everything except HW Config.
+,"Error during opening of a empty document. Error
+during opening of a symbolic table.","An incompatible OPC Manager is installed. In the system path of
+Windows vcf1.lic is responsible for this.",Delete this file and the file vcf132.ocx and reinstall STEP 7.
+,"Setup does not start with error message: in
+function ""Sdbitmap"":unable to crate dialog make
+sure the _isres.dll is in _setup.lib",The _isres.dll is needed for switching languages.,"Start Setup with the extension ol:b, then the Setup is forced to start in
+English."
+D280,"Error during compilation of a modul in S7-300. The
+module OB1 could not be copied.","This message appears, when the defined variable (marker, in- or output)
+in a module is not in the power range of the CPU.","Example, this message appears if the number of outputs is 8192 byte by the
+CPU and you have defined a variable outside of this range. Check the
+addresses with the definition of your variables."
+D406,The requested informations are not available.,Number of possible connections has been exceeded.,"Check the connections and reduce where appropriate. Static connections
+can be converted into dynamic connections."
+EA 02,"The protocols of communication software (S7DOS)
+and the interface module (CP) are not compatible.","The customer has a STEP 7 V5+SP1 + recent PDM and a CP 443-5 Ext
+> V2.7. The new RPC 7 protocol is used for data record routing between
+the CP and S7DOS. Unfortunately the CP up to version V2.7 does not
+support this function.",Upgrade CP 443-5 to a version >V2.7.
+,,"The user is using the correct components STEP 7 V5 + SP2 + PDM, but
+has a CP that does not have the DSGW.","Check the configuration and replace the CP being used with a different CP
+that has this function."
+Set PG/PC interface,,,
+None,"Error message by diagnostic: ""Profibus/MPI
+Network diagnostic"".
+Error: requested parameter could not be read from
+the register data basis!",Firmware/driver error,This behavior no longer occurs in SOFTNET PROFIBUS S7 V5.0.
+Message without numerical order,,,
+S7OTBLSTX,"Incompatible versionen by S7OTBLDX.DLL and
+S7OTBLSX.DLL.",S7 applications are still running at Setup of STEP 7.,Please close all S7 applications and restart SETUP.
+Error number: Text: Cause: Remedy:,,,
+,,"STEP 7 has been installed on a computer on which an S7 options
+package or version of ProTool /WIN CC is already installed which is not
+compatible with the version of STEP 7.","Please search for ""S7OT*.*"" on all your local drives and delete them. Then
+please restart the Setup of STEP 7."
